@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+    <title>Сервис - Кинотеатр</title>
+</head>
+<body>
+<div class="container">
+
+    <nav class="nav nav-tabs">
+        <a class="nav-item nav-link" th:href="@{/index}">Афиша</a>
+        <a class="nav-item nav-link active" href="#">Кинотеатр</a>
+        <a class="nav-item nav-link" th:href="@{/formRegistration}">Зарегистрироваться</a>
+        <a class="nav-item nav-link" th:if="${user.username == 'Гость'}" th:href="@{/loginPage}">
+            <span th:text="${user.username}"></span>
+            <span> | Войти</span>
+        </a>
+        <a class="nav-item nav-link" th:if="${user.username != 'Гость'}" th:href="@{/logout}">
+            <span th:text="${user.username}"></span>
+            <span> | Выйти</span>
+        </a>
+    </nav>
+
+    <div class="row pt-3">
+        <div class="card" style="width: 60%">
+            <div class="card-header">
+                <h5>Информация о фильме</h5>
+            </div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Сеанс</th>
+                    <th scope="col">Ряд</th>
+                    <th scope="col">Место</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${film.name}"></td>
+                    <td th:text="${row}"></td>
+                    <td th:text="${column}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="card-body">
+                <form th:action="@{/createTicket}" method="post">
+                    <input type="hidden" name="id" value="0">
+                    <input type="hidden" readonly class="form-control-plaintext" id="sessionId" name="sessionId" th:value="${film.id}">
+                    <input type="hidden" readonly class="form-control-plaintext" id="posRow" name="posRow" th:value="${row}">
+                    <input type="hidden" readonly class="form-control-plaintext" id="cell" name="cell" th:value="${column}">
+                    <input type="hidden" readonly class="form-control-plaintext" id="userId" name="userId" th:value="${user.id}">
+                    <button type="submit" class="btn btn-primary mt-3">Купить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
