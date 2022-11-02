@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public class TicketStore {
     private final BasicDataSource pool;
-    private final String insert = "insert into ticket(session_id, pos_row, cell, user_id) values(?, ?, ?, ?)";
+    private final String insert = "insert into tickets(session_id, pos_row, cell, user_id) values(?, ?, ?, ?)";
     private final Logger logger = LoggerFactory.getLogger(TicketStore.class);
 
     public TicketStore(BasicDataSource pool) {

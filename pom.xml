@@ -124,7 +124,7 @@
                         <id>validate</id>
                         <phase>validate</phase>
                         <configuration>
-                            <configLocation>../job4j_dreamjob/checkstyle.xml</configLocation>
+                            <configLocation>../job4j_cinema/checkstyle.xml</configLocation>
                             <encoding>UTF-8</encoding>
                             <consoleOutput>true</consoleOutput>
                             <failsOnError>true</failsOnError>
