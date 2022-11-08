@@ -1,24 +1,40 @@
-# Репозиторий для третьего уровня курса job4j
+# Репозиторий для третьего уровня курса job4j_cinema
+
+#Описание
 Тестовое задание по созданию проекта сайта для кинотеатра.
+Проект представляет собой простой сайт для покупки билетов на сеанс фильма. 
 
-![](picture/java.svg)![](picture/maven.svg)![](picture/spring.svg)![](picture/psql.svg)![](picture/thymeleaf.svg)![](picture/bootstrap.svg)
+#Стек технологий 
+![](img/java.svg)![](img/maven.svg)![](img/spring.svg)![](img/psql.svg)![](img/thymeleaf.svg)![](img/bootstrap.svg)
 
+#Требуемые программы и запуск.
+Для запуска проекта потребуется: 
+- Java 8 и выше
+- Maven 3.8, 
+- PostgresSQL 14
+
+Перед использованием проекта необходимо создать базу данных:
+```create database cinema;```. Далее, нужно запустить приложение командой ```mvn spring-boot:run```
+
+#Как использовать 
 Афиша сайта
 
-![](picture/session.png)
+![](img/session.png)
 
 Для покупки билетов необходимо будет авторизоваться или зарегистрироваться.
 
-![](picture/registration.png)
+![](img/registration.png)
 
-![](picture/authorization.png)
+![](img/authorization.png)
 
 После выбора фильма мы можем выбрать ряд и место в ряду.
 
-![](picture/rowChance.png)
+![](img/rowChance.png)
 
-![](picture/columnChance.png)
+![](img/columnChance.png)
 
 А далее купить билет, увидев всю информацию
 
-![](picture/payment.png)
+![](img/payment.png)
+#Контакты
+Для более глубокой проработки вопросов со мной можно связаться по почте: kshift84@gmail.com;
